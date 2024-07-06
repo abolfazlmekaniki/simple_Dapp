@@ -5,16 +5,7 @@ import { useTonConnect } from "./hooks/useTonConnect";
 import { fromNano } from "ton-core";
 
 function App() {
-  const {
-    contract_address,
-    counter_value,
-    recent_sender,
-    owner_address,
-    contract_balance,
-    sendIncrement,
-    sendDeposite,
-    sendWithdraw
-  } = useMainContract();
+  const action = useMainContract();
 
   const { connected } = useTonConnect()
   
@@ -27,21 +18,21 @@ function App() {
       <div>
         <div className='Card'>
           <b>Our contract Address</b>
-          <div className='Hint'>{contract_address}</div>
+          <div className='Hint'>{action.contract_address}</div>
           <b>Our contract Balance</b>
-          <div className='Hint'>{fromNano(contract_balance!)}</div>
+          <div className='Hint'>{fromNano(action.contract_balance!)}</div>
         </div>
 
         <div className='Card'>
           <b>Counter Value</b>
-          <div>{counter_value ?? "Loading..."}</div>
+          <div>{action.counter_value ?? "Loading..."}</div>
         </div>
       </div>
       {connected && (
              <div style={{display:"flex",flexDirection:"column"}}>
                <a
                 onClick={() => {
-                  sendIncrement();
+                  action.sendIncrement();
                 }}
               >
                 Increment
@@ -49,7 +40,7 @@ function App() {
 
               <a
                 onClick={() => {
-                  sendDeposite();
+                  action.sendDeposite();
                 }}
               >
                 deposit
@@ -57,7 +48,7 @@ function App() {
 
               <a
                 onClick={() => {
-                  sendWithdraw();
+                  action.sendWithdraw();
                 }}
               >
                 withdraw
