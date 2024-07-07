@@ -11,14 +11,17 @@ function App() {
   
   
   return (
-    <div>
-      <div>
+    <div className="main">
+      <div className="tonwallet">
         <TonConnectButton />
       </div>
-      <div>
+      <div className="cards">
         <div className='Card'>
           <b>Our contract Address</b>
           <div className='Hint'>{action.contract_address}</div>
+        </div>
+
+        <div className='Card'>
           <b>Our contract Balance</b>
           <div className='Hint'>{fromNano(action.contract_balance!)}</div>
         </div>
@@ -29,30 +32,30 @@ function App() {
         </div>
       </div>
       {connected && (
-             <div style={{display:"flex",flexDirection:"column"}}>
-               <a
+             <div className="Card" style={{display:"flex",flexDirection:"row"}}>
+               <button
                 onClick={() => {
                   action.sendIncrement();
                 }}
               >
                 Increment
-              </a>
+              </button>
 
-              <a
+              <button
                 onClick={() => {
                   action.sendDeposite();
                 }}
               >
                 deposit
-              </a>
+              </button>
 
-              <a
+              <button
                 onClick={() => {
                   action.sendWithdraw();
                 }}
               >
                 withdraw
-              </a>
+              </button>
              </div>
               
         )}
