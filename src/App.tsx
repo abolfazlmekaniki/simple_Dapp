@@ -59,7 +59,7 @@ function App() {
 
               <button
                 onClick={() => {
-                  action.sendWithdraw();
+                  action.sendWithdraw(); 
                 }}
               >
                 withdraw
