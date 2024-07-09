@@ -4,7 +4,7 @@ import { useMainContract } from "./hooks/useMainContract";
 import { useTonConnect } from "./hooks/useTonConnect";
 import { fromNano } from "ton-core";
 import WebApp from "@twa-dev/sdk";
-
+import { MainButton } from '@twa-dev/sdk/react';
 
 
 function App() {
@@ -19,6 +19,7 @@ function App() {
   
   return (
     <div className="main">
+      <MainButton text="Submit" onClick={() => alert('submitted')} />
       <div className="tonwallet">
         <TonConnectButton />
       </div>
