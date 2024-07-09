@@ -19,11 +19,12 @@ function App() {
   
   return (
     <div className="main">
-      <MainButton text="Submit" onClick={() => alert('submitted')} />
+     
       <div className="tonwallet">
         <TonConnectButton />
       </div>
       <b>{WebApp.platform}</b>
+      <MainButton text="Submit" onClick={() => alert('submitted')} />
       <div className="cards">
         <div className='Card'>
           <b>Our contract Address</b>
