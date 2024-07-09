@@ -3,9 +3,16 @@ import { TonConnectButton } from "@tonconnect/ui-react";
 import { useMainContract } from "./hooks/useMainContract";
 import { useTonConnect } from "./hooks/useTonConnect";
 import { fromNano } from "ton-core";
+import WebApp from "@twa-dev/sdk";
+
+
 
 function App() {
   const action = useMainContract();
+
+  const showAlert=()=>{
+    WebApp.showAlert("hello world")
+  }
 
   const { connected } = useTonConnect()
   
@@ -15,6 +22,7 @@ function App() {
       <div className="tonwallet">
         <TonConnectButton />
       </div>
+      <b>{WebApp.platform}</b>
       <div className="cards">
         <div className='Card'>
           <b>Our contract Address</b>
@@ -55,6 +63,14 @@ function App() {
                 }}
               >
                 withdraw
+              </button>
+
+              <button
+                onClick={() => {
+                  showAlert();
+                }}
+              >
+                show Alert
               </button>
              </div>
               
