@@ -24,7 +24,7 @@ function App() {
         <TonConnectButton />
       </div>
       <b>{WebApp.platform}</b>
-      <b>{JSON.parse(WebApp.initData)}</b>
+      <b>{JSON.stringify(WebApp.initDataUnsafe)}</b>
       <MainButton text="Submit" onClick={() => alert('submitted')} />
       <div className="cards">
         <div className='Card'>
