@@ -24,6 +24,7 @@ function App() {
         <TonConnectButton />
       </div>
       <b>{WebApp.platform}</b>
+      <b>{WebApp.initData}</b>
       <MainButton text="Submit" onClick={() => alert('submitted')} />
       <div className="cards">
         <div className='Card'>
