@@ -13,7 +13,7 @@ function App() {
   const showAlert=()=>{
     WebApp.showAlert("hello world")
   }
-
+  
   const { connected } = useTonConnect()
   
   
@@ -24,7 +24,7 @@ function App() {
         <TonConnectButton />
       </div>
       <b>{WebApp.platform}</b>
-      <b>{WebApp.initData}</b>
+      <b>{JSON.parse(WebApp.initData)}</b>
       <MainButton text="Submit" onClick={() => alert('submitted')} />
       <div className="cards">
         <div className='Card'>
